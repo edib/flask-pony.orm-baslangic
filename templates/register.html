@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block body %}
+<div class="jumbotron">
+  <h1 class="display-4">Kayıt Olun!</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method=post>
+  <div class="form-group">
+    <dl>
+      {{ render_field(form.name, class="form-control") }}
+      {{ render_field(form.username, class="form-control") }}
+      {{ render_field(form.email, class="form-control") }}
+      {{ render_field(form.password, class="form-control") }}
+      {{ render_field(form.confirm, class="form-control") }}
+    </dl>
+    <p><button class="btn btn-primary" type=submit>Register</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
