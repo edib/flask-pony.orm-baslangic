@@ -1,0 +1,15 @@
+{% extends "layout.html" %} {% block body %}
+<div class="jumbotron">
+  <h1 class="display-4">Giriş Yap!</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method=post>
+  <div class="form-group">
+    <dl>
+      {{ render_field(form.username) }}
+      {{ render_field(form.password) }}
+    </dl>
+    <p><button class="btn btn-primary" type=submit>Giriş</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

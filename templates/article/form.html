@@ -1,0 +1,15 @@
+{% extends "layout.html" %} {% block body %}
+<div class="jumbotron">
+  <h1 class="display-4">{{ form_task }}</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method=post>
+  <div class="form-group">
+    <dl>
+      {{ render_field(form.title, class="form-control") }}
+      {{ render_field(form.content, class="form-control") }}
+    </dl>
+    <p><button class="btn btn-primary" type=submit>{{ form_task }}</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

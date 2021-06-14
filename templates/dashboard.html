@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block body %}
+<div class="jumbotron">
+   <h1 class="display-4">Kontrol Paneli!</h1>
+   <small>Hoşgeldin, {{ session['username'] }}</small>
+   <hr class="">
+   <a href="/article/add" class="btn btn-primary">Makale Ekle</a>
+   <a href="/article/list" class="btn btn-primary">Makaleler</a>
+
+<h1 class="display-4">Makalelerim</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Yazar</th>
+      <th scope="col">Tarih</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <tbody>
+  {% for article in articles %}
+      <tr>
+      <th scope="row">{{ article.id}}</th>
+      <td><a href="/article/get/{{ article.id }}">{{ article.title }}</a></td>
+      <td>{{ article.author }}</td>
+      <td>{{ article.created_date }}</td>
+      <td><a href="/article/edit/{{ article.id }}" class="btn btn-danger">Güncelle</a>
+      <td><a href="/article/delete/{{ article.id }}" class="btn btn-danger">Sil</a>
+    </tr>
+{% endfor %}
+ </tbody>
+</table>
+</div>
+{% endblock %}
